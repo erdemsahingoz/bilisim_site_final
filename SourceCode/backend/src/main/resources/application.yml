@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: bilisim-store
+
+  # Yeni Veritabanımız: MySQL Bağlantı Ayarları
+  datasource:
+    url: jdbc:mysql://localhost:3306/bilisim_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1111
+
+  # Hibernate/JPA Ayarları (Tabloları otomatik oluşturur)
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# ─── Sunucu Ayarları ────────────────────────────────────────
+server:
+  port: 8080
+  error:
+    include-message: always
+
+# ─── Özel Uygulama Ayarları ─────────────────────────────────
+app:
+  firebase:
+    service-account-path: classpath:firebase-service-account.json
+  stripe:
+    secret-key: ${STRIPE_SECRET_KEY:sk_test_YOUR_STRIPE_SECRET_KEY_HERE}
+  cors:
+    allowed-origins: http://localhost:3000
+
+# ─── Loglama ────────────────────────────────────────────────
+logging:
+  level:
+    com.bilisim: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG

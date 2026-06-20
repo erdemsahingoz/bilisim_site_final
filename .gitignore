@@ -1,0 +1,30 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build outputs
+target/
+build/
+dist/
+out/
+
+# Local/temp directories
+maven_temp/
+.gradle/
+.mvn/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+
+# OS files
+Thumbs.db
+Desktop.ini
